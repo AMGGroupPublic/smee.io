@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+if docker info 2>/dev/null | grep -q '^ Username:'; then
+    echo "Logged into Docker Hub"
+else
+    echo "Not logged in"
+    echo "Please log into Docker Hub"
+    docker login -u marlscot
+fi
+echo "Pushing marlscot/smee.io:latest to Dockerhub"
+docker tag marlscot/smee.io latest
+docker push marlscot/smee.io:latest

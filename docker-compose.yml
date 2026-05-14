@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  smee:
+    image: marlscot/smee.io
+    container_name: smee
+    #ports:
+    #  - "3000:3000"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

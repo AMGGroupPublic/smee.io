@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+docker stop smee.io
+docker image inspect smee.io:latest >/dev/null 2>&1 && docker rmi smee.io:latest
+docker build --no-cache -t marlscot/smee.io .
+docker run -d -p 3001:3000 --name marlscot/smee smee.io
+docker logs smee.io -f
+
+docker tag marlscot/smee.io latest
+docker push marlscot/smee.io:latest
+

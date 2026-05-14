@@ -6,6 +6,7 @@ WORKDIR /usr/src/smee.io
 COPY package*.json ./
 COPY webpack.config.js ./
 COPY src ./src
+COPY public ./public
 RUN ls
 # Install the project's dependencies and build the bundles
 RUN npm ci
